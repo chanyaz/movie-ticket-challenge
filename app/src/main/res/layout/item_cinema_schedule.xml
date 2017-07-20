@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/txt_cinema_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/txt_cinema_distance"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Cinestart Sony Center" />
+
+    <TextView
+        android:id="@+id/txt_cinema_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        tools:text="3 mi" />
+
+    <TextView
+        android:id="@+id/txt_screen_type_standart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_cinema_name"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        tools:text="Standard" />
+
+    <TextView
+        android:id="@+id/txt_label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/txt_screen_type_standart"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@id/txt_screen_type_standart"
+        android:background="@drawable/bg_show_time"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        tools:text="2.45 PM" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/txt_screen_type_standart"
+        android:layout_marginLeft="16dp"
+        android:layout_toEndOf="@id/txt_label1"
+        android:background="@drawable/bg_show_time"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        tools:text="8.10 PM" />
+
+    <TextView
+        android:id="@+id/txt_screen_type_3d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/txt_screen_type_standart"
+        android:layout_alignStart="@id/txt_screen_type_standart"
+        android:layout_below="@id/txt_screen_type_standart"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        tools:text="3D" />
+
+    <TextView
+        android:id="@+id/txt_screen_type_imax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/txt_screen_type_standart"
+        android:layout_alignStart="@id/txt_screen_type_standart"
+        android:layout_below="@id/txt_screen_type_3d"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        tools:text="IMAX" />
+
+
+</RelativeLayout>

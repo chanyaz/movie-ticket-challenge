@@ -1,6 +1,9 @@
 package com.konstantin.movieticket
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -53,6 +56,12 @@ class MainActivity : AppCompatActivity() {
             imgPoster.setImageResource(R.drawable.poster_ww)
             txtTitle.text = movie.name
             txtRating.text = movie.rating.toString()
+            itemView.setOnClickListener {
+                val context = itemView.context
+                val intent = Intent(context, ScheduleActivity::class.java)
+                intent.putExtra(ScheduleActivity.BUNDLE_MOVIE, movie)
+                context.startActivity(intent)
+            }
         }
     }
 
@@ -69,5 +78,24 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount() = list.size
     }
 
-    data class Movie(val id: Int, val name: String, val rating: Float)
+    data class Movie(val id: Int, val name: String, val rating: Float) : Parcelable {
+        // 1
+        companion object {
+            // 2
+            @JvmField @Suppress("unused")
+            val CREATOR = createParcel { Movie(it) } // 3
+        }
+
+        // 4
+        protected constructor(parcelIn: Parcel) : this(parcelIn.readInt(), parcelIn.readString(), parcelIn.readFloat())
+
+        override fun writeToParcel(dest: Parcel, flags: Int) {
+            dest.writeInt(id)
+            dest.writeString(name)
+            dest.writeFloat(rating)
+        }
+
+        override fun describeContents() = 0
+
+    }
 }
